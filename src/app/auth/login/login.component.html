@@ -1,0 +1,35 @@
+<div fxLayout="column" layout-fill>
+  <div fxLayoutAlign="center" fxLayout="row">
+    <mat-card class="mat-elevation-z8" fxFlex="20" style="margin-top: 20px;">
+
+      <mat-card-title>
+        Login
+      </mat-card-title>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="stretch">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column">
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email*</mat-label>
+            <input matInput formControlName="email" type="email">
+            <mat-error *ngIf="form.email.invalid && (form.email.dirty || form.email.touched)">O campo Email é de
+              preenchimento obrigatório.</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Senha*</mat-label>
+            <input matInput formControlName="password" type="password">
+            <mat-error *ngIf="form.password.invalid && (form.password.dirty || form.password.touched)">O campo Senha é de
+              preenchimento obrigatório.</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
+            Login
+          </button>
+
+        </form>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>
